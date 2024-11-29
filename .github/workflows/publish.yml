@@ -88,13 +88,13 @@ jobs:
       - name: Generate kube config with k3s  		
         run: |
           HOST=`aws ec2 describe-instances --filters 'Name=tag:Name,Values=cluster-vtg-spec-teste' --output text --query 'Reservations[*].Instances[*].PublicIpAddress'`
-          ssh -i ./cert.pem -o StrictHostKeyChecking=no $USERNAME@$HOST "mkdir -p .kube && k3d kubeconfig get k3s > ~/.kube/config"
+          ssh -i ./cert.pem -o StrictHostKeyChecking=no $USERNAME@$HOST "mkdir -p .kube && k3d kubeconfig get k3s > config"
           echo "Host=$HOST" >> $GITHUB_ENV
 
       - name: 
         run: |
            mkdir -p ~/.kube
-           scp -i ./cert.pem -o StrictHostKeyChecking=no $USERNAME@${{ env.Host }}:~/.kube/config ~/.kube/config
+           scp -i ./cert.pem -o StrictHostKeyChecking=no $USERNAME@${{ env.Host }}:config ~/.kube/config
            CERTIFICATE=`cat  ~/.kube/config |grep certificate-authority-data `
            sed -i "s|$CERTIFICATE|    insecure-skip-tls-verify: true|g" ~/.kube/config
            sed -i "s|0.0.0.0|${{ env.Host }}|g" ~/.kube/config
