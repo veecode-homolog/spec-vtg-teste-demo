@@ -20,7 +20,7 @@ spec:
                   number: 80
             path: /~/spec-vtg-teste-demo/ws/(?<zip_code>[^#?/]+)/json$
             pathType: ImplementationSpecific
-      host: vkpr.platform.vee.codes
+      host: cluster-vtg-spec-teste.vkpr.platform.vee.codes
 ---
 apiVersion: v1
 kind: Service
