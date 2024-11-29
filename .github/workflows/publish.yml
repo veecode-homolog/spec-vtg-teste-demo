@@ -4,7 +4,7 @@ on:
 
 env:
   PROJECT_NAME: "spec-vtg-teste-demo"
-  HOST_NAME: "vkpr.platform.vee.codes"
+  HOST_NAME: "cluster-vtg-spec-teste.vkpr.platform.vee.codes"
   CORS_ORIGIN_LIST: "https://devportal-homolog.apr.vee.codes,https://devportal.apr.vee.codes"
   PORT: 6550
   USERNAME: "ec2-user"
