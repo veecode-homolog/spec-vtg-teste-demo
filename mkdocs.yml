@@ -1,0 +1,8 @@
+site_name: spec-vtg-teste-demo
+site_description: "Artifacts generator via Spec."
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core
